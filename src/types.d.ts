@@ -9,5 +9,9 @@ export interface ApiCategory {
     title: string;
 }
 
+export interface Quote extends ApiQuote{
+    id: string;
+}
+
   
   

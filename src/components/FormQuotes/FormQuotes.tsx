@@ -51,16 +51,33 @@ const FormQuotes: React.FC = () => {
     void fetchQuote();
   }, [params.id]);
 
-  const quoteChanged = (
-    event: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>
-  ) => {
-    const { name, value } = event.target;
+  // const quoteChanged = (
+  //   event: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>
+  // ) => {
+  //   const { name, value } = event.target;
 
-    setFilling((prevState) => ({
-      ...prevState,
-      [name]: value,
-    }));
+  //   setFilling((prevState) => ({
+  //     ...prevState,
+  //     [name]: value,
+  //   }));
+  // };
+
+  const quoteChanged = (event: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
+    const { name, value } = event.target;
+  
+    if (name === 'category') {
+      setFilling((prevState) => ({
+        ...prevState,
+        category: value,
+      }));
+    } else {
+      setFilling((prevState) => ({
+        ...prevState,
+        [name]: value,
+      }));
+    }
   };
+  
 
   const onFormSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
