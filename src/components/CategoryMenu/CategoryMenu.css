@@ -1,0 +1,95 @@
+.post-list {
+    list-style: none;
+    padding: 0;
+}
+  
+.post-item {
+    position: relative;
+    margin-bottom: 20px;
+    background: #fff;
+    padding: 15px;
+    border-radius: 15px;
+    color: #333;
+}
+
+.post-title {
+    font-size: 25px;
+    margin-bottom: 5px;
+}
+
+.post-comment {
+    font-size: 16px;
+    margin-bottom: 30px;
+}
+
+.post-bottom{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.post-link:hover{
+    color: blueviolet;
+}
+
+.post-time {
+    font-size: 14px;
+    margin: 0;
+    color: #666;
+}
+
+.post-btns{
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.tooltip-container{
+    display: flex;
+    justify-content: center;
+    max-width: 60px;
+    font-size: 18px;
+    border: 1px solid black;
+    padding: 8px 15px;
+    border-radius: 8px;
+    background: #fff;
+    color: #000;
+    transition: 0.3s;
+    position: relative;
+}
+
+.tooltip {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    padding: 5px 10px;
+    opacity: 0;
+    pointer-events: none;
+    transition: all 0.3s;
+    background-color: rgb(0, 0, 0, 0.5);
+    border-radius: 12px;
+    color: #fff;
+}
+  
+.tooltip::before {
+    position: absolute;
+    content: "";
+    top: 100%;
+    left: 50%;
+    border: 10px solid transparent; 
+    border-top: 10px solid rgb(0, 0, 0, 0.5);
+    transform: translate(-50%);
+}
+  
+.tooltip-container:hover .tooltip {
+    top: -100%;
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
+}
+
+.tooltip-container:hover{
+    color: blueviolet;
+    border-color: blueviolet;
+}
