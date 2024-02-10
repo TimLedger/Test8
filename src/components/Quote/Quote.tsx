@@ -4,7 +4,7 @@ import { useParams, Link, useNavigate, Outlet } from 'react-router-dom';
 import { ApiQuote } from '../../types';
 import axiosApi from '../../axiosApi';
 import { FaBomb, FaEdit } from "react-icons/fa";
-// import './Quote.css';
+import './Quote.css';
 
 const Quote = () => {
   const navigate = useNavigate();
@@ -14,7 +14,7 @@ const Quote = () => {
 
   const fetchQuote = useCallback( async () => {
     setLoading(true); 
-    const response = await axiosApi.get<ApiQuote | null>('/quote/' + params.id +'.json');
+    const response = await axiosApi.get<ApiQuote | null>('/quotes/' + params.id +'.json');
     setQuote(response.data);
     setLoading(false); 
 
@@ -25,7 +25,7 @@ const Quote = () => {
   }, [fetchQuote]);
 
   const deleteQuote = async () => {
-    await axiosApi.delete('/quote/' + params.id +'.json');
+    await axiosApi.delete('/quotes/' + params.id +'.json');
     navigate('/');
   };
 
@@ -47,7 +47,7 @@ const Quote = () => {
         <Outlet/>
       </div>
     )
-  } else if (!loading && !quote) {
+  } else if (!loading && quote) {
     postArea = (
       <h1>Цитата не найдена</h1>
     )

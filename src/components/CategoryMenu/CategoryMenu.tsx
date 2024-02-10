@@ -4,7 +4,11 @@ import axiosApi from '../../axiosApi';
 import { ApiCategory } from '../../types';
 import './CategoryMenu.css';
 
-const CategoryMenu: React.FC = () => {
+interface CategoryMenuProps {
+  onCategorySelect: (categoryId: string) => void;
+}
+
+const CategoryMenu: React.FC<CategoryMenuProps> = ({ onCategorySelect }) => {
   const [categories, setCategories] = useState<ApiCategory[] | null>(null);
 
   useEffect(() => {
@@ -21,11 +25,15 @@ const CategoryMenu: React.FC = () => {
     fetchCategories();
   }, []);
 
+  const handleCategorySelect = (categoryId: string) => {
+    onCategorySelect(categoryId);
+  };
+
   return (
     <div>
-      <Link to={'/quotes'} className="category-link">All</Link>
+      <Link to={'/categories'} className="category-link">All</Link>
       {categories && categories.map((category) => (
-        <Link key={category.id} to={'/quotes/' + category.id} className="category-link">
+        <Link key={category.id} to={'/categories/' + category.id} className="category-link" onClick={() => handleCategorySelect(category.id)}>
           {category.title}
         </Link>
       ))}

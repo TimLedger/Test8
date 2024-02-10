@@ -7,7 +7,7 @@ const Toolbar: React.FC = () => {
         <nav className='main-nav'>
             <ul>
                 <li>
-                    <NavLink to="/quotes" className={({ isActive }) => isActive ? 'active-link' : 'link'}>Цитаты</NavLink>
+                    <NavLink to="/categories" className={({ isActive }) => isActive ? 'active-link' : 'link'}>Цитаты</NavLink>
                 </li>
                 <li>
                     <NavLink to="/new-quote" className={({ isActive }) => isActive ? 'active-link' : 'link'}>Добавить</NavLink>

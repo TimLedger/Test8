@@ -51,17 +51,6 @@ const FormQuotes: React.FC = () => {
     void fetchQuote();
   }, [params.id]);
 
-  // const quoteChanged = (
-  //   event: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>
-  // ) => {
-  //   const { name, value } = event.target;
-
-  //   setFilling((prevState) => ({
-  //     ...prevState,
-  //     [name]: value,
-  //   }));
-  // };
-
   const quoteChanged = (event: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
     const { name, value } = event.target;
   
@@ -126,7 +115,7 @@ const FormQuotes: React.FC = () => {
             <option value="">Выберите категорию</option>
             {categories &&
               categories.map((category) => (
-                <option key={category.id} value={category.title}>
+                <option key={category.id} value={category.id}>
                   {category.title}
                 </option>
               ))}
